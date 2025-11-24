@@ -13,6 +13,9 @@ import com.talento.crud.model.Articulo;
 // Importa el servicio que contiene la lógica de negocio
 import com.talento.crud.service.ArticuloService;
 
+//  Importación de la anotación @Autowired
+import org.springframework.beans.factory.annotation.Autowired; 
+
 // Importaciones agrupadas para las anotaciones de Spring Web
 // Esto incluye: @GetMapping, @PostMapping, @PutMapping,
 // @DeleteMapping, @RequestBody, @PathVariable, @RestController, etc.

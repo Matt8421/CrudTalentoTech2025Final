@@ -1,7 +1,8 @@
 package com.talento.crud.model;
 
-import jakarta.annotation.Generated;
-//Importa anotaciones de JPA para mapear la clase a la base de datos
+
+// Importa TODAS las clases de persistencia de Jakarta (JPA).
+// Esto incluye: @Entity, @Table, @Id, @GeneratedValue y GenerationType.
 import jakarta.persistence.*;
 
 @Entity              //Indica que esta clase es una tabla en la base de datos(entidad JPA)
@@ -11,7 +12,7 @@ import jakarta.persistence.*;
 public class Articulo {
 
     @Id                //Marca este campo como clave primaria
-    @GeneratedValue(Strategy = GenerationType.IDENTITY)   //El ID se genera automaticamente ( AUTO_INCREMENT en MySQL)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)   //El ID se genera automaticamente ( AUTO_INCREMENT en MySQL)
 
     private Long id; 
     //Estos atributos van a ser columnas en la tabla "articulo"

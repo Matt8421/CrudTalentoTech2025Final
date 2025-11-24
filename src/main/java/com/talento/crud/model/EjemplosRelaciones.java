@@ -6,8 +6,7 @@
 // Es SOLO educativo para entender relaciones JPA (OneToOne, ManyToMany, etc.)
 //
 // Para evitar errores de compilación en VS Code (porque no tengo JPA en pom.xml),
-// se comenta TODO el contenido.
-// -------------------------------------------------------------------------
+//------------------------------------------
 
 package com.talento.crud.model;
 
