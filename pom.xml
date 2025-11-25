@@ -1,90 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     
+    <!-- Versión del modelo POM (siempre 4.0.0 para Maven) -->
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- PARENT: Hereda configuraciones de Spring Boot -->
     <parent>
-        <!-- Versión 3.3.5 (estable) -->
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.3.5</version> 
-        <relativePath/> <!-- lookup parent from repository -->
+        <!-- Versión 3.2.5 - estable y probada para el curso -->
+        <version>3.2.5</version>
+        <relativePath/> <!-- Busca el parent en el repositorio Maven -->
     </parent>
-    
+
+    <!-- IDENTIFICACIÓN DEL PROYECTO -->
+    <!-- GroupId: identifica la organización/empresa -->
     <groupId>com.talento</groupId>
-    <artifactId>crud</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>crudTalentoTech2025</name>
-    <description>Demo de Crud de Articulos</description>
     
+    <!-- ArtifactId: nombre único del proyecto -->
+    <artifactId>crud</artifactId>
+    
+    <!-- Versión del proyecto (SNAPSHOT = en desarrollo) -->
+    <version>0.0.1-SNAPSHOT</version>
+    
+    <!-- Tipo de empaquetado (jar = Java Archive ejecutable) -->
+    <packaging>jar</packaging>
+    
+    <!-- Nombre descriptivo del proyecto -->
+    <name>crudTalentoTech2025</name>
+    
+    <!-- Descripción del proyecto -->
+    <description>Demo de CRUD de Articulos con Spring Boot y MySQL</description>
+
+    <!-- PROPIEDADES: Variables reutilizables -->
     <properties>
+        <!-- Versión de Java que usará el proyecto -->
         <java.version>17</java.version>
     </properties>
-    
+
+    <!-- DEPENDENCIAS: Librerías que necesita el proyecto -->
     <dependencies>
 
-        <!-- WEB: Para construir la aplicación web y RESTful -->
+        <!-- SPRING BOOT WEB: Para crear APIs REST y aplicaciones web -->
+        <!-- Incluye: Tomcat (servidor), Spring MVC, Jackson (JSON) -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- JPA: Para la persistencia de datos (Hibernate, Repositories) -->
+        <!-- SPRING DATA JPA: Para persistencia de datos -->
+        <!-- Incluye: Hibernate (ORM), JPA, Repositories automáticos -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
-        <!-- Conector MySQL: CAMBIO DE ARTEFACTO a 'mysql-connector-java' con versión 8.0.30 -->
+        <!-- MYSQL CONNECTOR: Driver para conectar con base de datos MySQL -->
+        <!-- IMPORTANTE: usar 'mysql-connector-j' (nuevo) NO 'mysql-connector-java' (obsoleto) -->
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.30</version> 
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <!-- scope runtime: solo se necesita al ejecutar, no al compilar -->
             <scope>runtime</scope>
-        </dependency>
-
-        <!-- LOMBOK: Para simplificar el código Java -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
-
-        <!-- TEST: Dependencias para pruebas -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
         </dependency>
 
     </dependencies>
 
-
+    <!-- BUILD: Configuración de compilación y empaquetado -->
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <annotationProcessorPaths>
-                        <path>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </path>
-                    </annotationProcessorPaths>
-                </configuration>
-            </plugin>
+            <!-- Plugin de Spring Boot: crea un JAR ejecutable -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
-                </configuration>
             </plugin>
         </plugins>
     </build>
