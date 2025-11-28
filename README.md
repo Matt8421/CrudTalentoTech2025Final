@@ -34,15 +34,6 @@ MySQL Workbench 8.0
 
 Postman para pruebas de API
 
-🧱 Arquitectura del proyecto
-src/
- └─ main/
-     └─ java/com/talento/crud/
-         ├─ model/            → Entidad JPA (Articulo)
-         ├─ repository/       → JpaRepository
-         ├─ service/          → Lógica de negocio (interfaz + implementación)
-         └─ controller/       → Endpoints REST
-
 
 Patrones utilizados:
 
